@@ -2,6 +2,7 @@ package org.demowebshop.utilities;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
@@ -27,6 +28,10 @@ public class PageUtility {
         return element.getTagName();
     }
 
+    public void clearValue(WebElement element) {
+        element.clear();
+    }
+
     public Dimension getElementSize(WebElement element) {
         return element.getSize();
     }
@@ -47,8 +52,8 @@ public class PageUtility {
         element.submit();
     }
 
-    public void getLocationValue(WebElement element) {
-        element.getLocation();
+    public Point getLocationValue(WebElement element) {
+        return element.getLocation();
     }
 
     public void getClear(WebElement element) {
@@ -98,5 +103,5 @@ public class PageUtility {
     public void clickAndHold(WebElement drag, WebElement drop, Actions action) {
         action.clickAndHold(drag).moveToElement(drop).build().perform();
     }
-
 }
+
