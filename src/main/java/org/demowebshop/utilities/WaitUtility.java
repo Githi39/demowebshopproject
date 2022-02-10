@@ -22,31 +22,100 @@ public class WaitUtility {
         {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(target)));
         }
-        if(locatertype.equals(LocaterType.ClassName))
+       else if(locatertype.equals(LocaterType.ClassName))
         {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.className(target)));
         }
-        if(locatertype.equals(LocaterType.Name))
+        else if(locatertype.equals(LocaterType.Name))
         {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.name(target)));
         }
-        if(locatertype.equals(LocaterType.Xpath))
+        else  if(locatertype.equals(LocaterType.Xpath))
         {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(target)));
         }
-        if(locatertype.equals(LocaterType.LinkText))
+        else if(locatertype.equals(LocaterType.LinkText))
         {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText(target)));
         }
-        if(locatertype.equals(LocaterType.PartialLinkText))
+        else if(locatertype.equals(LocaterType.PartialLinkText))
         {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText(target)));
         }
-        if(locatertype.equals(LocaterType.TagName))
+        else if (locatertype.equals(LocaterType.TagName))
         {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName(target)));
         }
     }
+    public void waitToBeElementToBeClickable(WebDriver driver, String target, Enum locatertype)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
 
+        if(locatertype.equals(LocaterType.Id))
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.id(target)));
+
+        }
+        else  if(locatertype.equals(LocaterType.ClassName))
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.className(target)));
+        }
+        else  if(locatertype.equals(LocaterType.Name))
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.name(target)));
+        }
+        else  if(locatertype.equals(LocaterType.Xpath))
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(target)));
+        }
+        else  if(locatertype.equals(LocaterType.LinkText))
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.linkText(target)));
+        }
+        else  if(locatertype.equals(LocaterType.PartialLinkText))
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText(target)));
+        }
+        else  if(locatertype.equals(LocaterType.TagName))
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.tagName(target)));
+        }
+    }
+    public void waitforElementToBeSelected(WebDriver driver, String target, Enum locatertype)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
+
+        if(locatertype.equals(LocaterType.Id))
+        {
+            wait.until(ExpectedConditions.elementToBeSelected(By.id(target)));
+
+
+        }
+        else  if(locatertype.equals(LocaterType.ClassName))
+        {
+            wait.until(ExpectedConditions.elementToBeSelected(By.className(target)));
+        }
+        else  if(locatertype.equals(LocaterType.Name))
+        {
+            wait.until(ExpectedConditions.elementToBeSelected(By.name(target)));
+        }
+        else  if(locatertype.equals(LocaterType.Xpath))
+        {
+            wait.until(ExpectedConditions.elementToBeSelected(By.xpath(target)));
+        }
+        else  if(locatertype.equals(LocaterType.LinkText))
+        {
+            wait.until(ExpectedConditions.elementToBeSelected(By.linkText(target)));
+        }
+        else  if(locatertype.equals(LocaterType.PartialLinkText))
+        {
+            wait.until(ExpectedConditions.elementToBeSelected(By.partialLinkText(target)));
+        }
+        else  if(locatertype.equals(LocaterType.TagName))
+        {
+            wait.until(ExpectedConditions.elementToBeSelected(By.tagName(target)));
+
+        }
+    }
 
 }
