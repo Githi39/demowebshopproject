@@ -6,21 +6,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class UserAccountPage extends TestHelpUtility {
+public class ShoppingCartPage extends TestHelpUtility {
     WebDriver driver;
-    public UserAccountPage(WebDriver driver) {
+
+    /**Page Constructor**/
+    public ShoppingCartPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    private final String _actualUserName = "//div[@class='header-links']//a[@class='account']";
-    @FindBy(xpath = _actualUserName)
-    private WebElement actualUserName;
+    /**Page elements**/
 
+    private final String _product="//td[@class='product']/a[@class='product-name']";
+    @FindBy(xpath = _product ) private WebElement product;
 
     /**User action methods**/
-    public  String getUserAccountEmail(){
-        String email = page.getElementText(actualUserName);
-        return email;
+
+    public String getProductNameDisplayed() {
+        return page.getElementText(product);
     }
 }

@@ -46,6 +46,14 @@ public class WaitUtility {
         {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName(target)));
         }
+        else
+        {
+            try {
+                throw new Exception("invalid locator");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
     public void waitToBeElementToBeClickable(WebDriver driver, String target, Enum locatertype)
     {
@@ -79,6 +87,14 @@ public class WaitUtility {
         else  if(locatertype.equals(LocaterType.TagName))
         {
             wait.until(ExpectedConditions.elementToBeClickable(By.tagName(target)));
+        }
+        else
+        {
+            try {
+                throw new Exception("invalid locator");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
     public void waitforElementToBeSelected(WebDriver driver, String target, Enum locatertype)
@@ -115,6 +131,14 @@ public class WaitUtility {
         {
             wait.until(ExpectedConditions.elementToBeSelected(By.tagName(target)));
 
+        }
+        else
+        {
+            try {
+                throw new Exception("invalid locator");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

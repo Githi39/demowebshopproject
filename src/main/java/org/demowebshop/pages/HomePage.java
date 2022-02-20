@@ -1,4 +1,65 @@
 package org.demowebshop.pages;
 
-public class HomePage {
+import org.demowebshop.utilities.TestHelpUtility;
+import org.demowebshop.utilities.WaitUtility;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
+
+public class HomePage extends TestHelpUtility {
+    WebDriver driver;
+
+    /**page constructor **/
+  public HomePage(WebDriver driver)
+    {
+        this.driver=driver;
+        PageFactory.initElements(driver,this);
+    }
+
+
+    /**page elements **/
+  private final String _loginMenu="//a[@class='ico-login']";
+    @FindBy(xpath=_loginMenu)  //using page factory
+    private WebElement loginMenu;
+
+  /**user action method **/
+    public String getHomePageTitle()
+    {
+        String title=page.getPageTitle(driver);
+        return title;}
+
+    private final String _registerMenu = "//a[@class='ico-register']";
+    @FindBy(xpath=_registerMenu)
+    private WebElement registerMenu;
+
+    private final String _allMenus="//ul[@class='top-menu']//li//a";
+    @FindBy(xpath =_allMenus )
+    private List<WebElement> allMenus;
+
+    /**method for click on login menu**/
+
+    public LoginPage clickOnLoginMenu() {
+        wait.waitForTheElementToBeVisible(driver,_loginMenu, WaitUtility.LocaterType.Xpath);
+        page.clickOnElement(loginMenu);
+        return new LoginPage(driver);
+    }
+    public RegisterPage clickOnRegisterMenu()
+    {
+        page.clickOnElement(registerMenu);
+        return new RegisterPage(driver);
+    }
+    public ProductListPage clickOnProductMenu(String text) {
+        for (int i = 0; i < allMenus.size(); i++) {
+            String value = allMenus.get(i).getText();
+            if (value.equals(text)) {
+                page.clickOnElement(allMenus.get(i));
+                break;
+            }
+        }
+        return new ProductListPage(driver);
+    }
 }

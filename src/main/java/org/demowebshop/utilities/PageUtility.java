@@ -55,7 +55,7 @@ public class PageUtility {
         boolean status = element.isEnabled();
         return status;
     }
-    public void SubmitOnElement(WebElement element) {
+    public void SubmitButton(WebElement element) {
         element.submit();
     }
     public Point getLocationValue(WebElement element) {
@@ -70,6 +70,10 @@ public class PageUtility {
     public void selectDropDownByVisibleText(WebElement element, String value) {
         Select select = new Select(element);
         select.selectByVisibleText(value);
+    }
+    public String getPageTitle(WebDriver driver)
+    {
+        return driver.getTitle();
     }
     public void deselectDropDownByByVisibleText(WebElement element, String value) {
         Select select = new Select(element);
@@ -103,11 +107,11 @@ public class PageUtility {
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
-    public String alertGetText(WebDriver driver) {
+    public String getAlertText(WebDriver driver) {
         Alert alert = driver.switchTo().alert();
         return alert.getText();
     }
-    public void alertPrompt(WebDriver driver, String value) {
+    public void enterTextOnAlert(WebDriver driver, String value) {
         Alert alert = driver.switchTo().alert();
         alert.sendKeys(value);
     }
@@ -115,65 +119,65 @@ public class PageUtility {
         Alert alert = driver.switchTo().alert();
         alert.dismiss();
     }
-    public void doubleClick(WebDriver driver, WebElement element) {
+    public void doubleClickOnElement(WebDriver driver, WebElement element) {
         Actions actions = new Actions(driver);
         actions.doubleClick(element).build().perform();
     }
-    public void clickAndHold(WebDriver driver, WebElement element) {
+    public void clickAndHoldAnElement(WebDriver driver, WebElement element) {
         Actions actions = new Actions(driver);
         actions.clickAndHold(element).build().perform();
     }
-    public void dragAndDrop(WebDriver driver, WebElement source, WebElement target) {
+    public void dragAndDropAnElement(WebDriver driver, WebElement source, WebElement target) {
         Actions actions = new Actions(driver);
         actions.dragAndDrop(source, target).build().perform();
     }
-    public void dragAndDropByDragByoffset(WebDriver driver, WebElement source, int x, int y) {
+    public void dragAndDropByDragToaPosition(WebDriver driver, WebElement source, int x, int y) {
         Actions actions = new Actions(driver);
         actions.dragAndDropBy(source, x, y).build().perform();
     }
-    public void moveToElement(WebDriver driver, WebElement source, int x, int y) {
+    public void moveToAnElement(WebDriver driver, WebElement source, int x, int y) {
         Actions actions = new Actions(driver);
         actions.moveToElement(source, x, y).build().perform();
     }
-    public void contextClick(WebDriver driver, WebElement target) {
+    public void rightClickOnElement(WebDriver driver, WebElement target) {
         Actions actions = new Actions(driver);
         actions.contextClick(target).build().perform();
     }
-    public List<WebElement> dropDownValuesOptions(WebElement element) {
+    public List<WebElement> getDropDownValues(WebElement element) {
         Select select = new Select(element);
         return select.getOptions();
     }
-    public void navigateTo(WebDriver driver, String url) {
+    public void navigateToApplication(WebDriver driver, String url) {
         driver.navigate().to(url);
     }
-    public void navigateForward(WebDriver driver) {
+    public void navigateForwardToApplication(WebDriver driver) {
         driver.navigate().forward();
     }
-    public void navigateBack(WebDriver driver) {
+    public void navigateBackToApplication(WebDriver driver) {
         driver.navigate().back();
     }
-    public void navigateRefresh(WebDriver driver) {
+    public void navigateRefreshToApplication(WebDriver driver) {
         driver.navigate().refresh();
     }
-    public void getWindowhandle(WebDriver driver, String value) {
+    public void getWindowhandleId(WebDriver driver, String value) {
         driver.getWindowHandle();
     }
-    public void frameByIndex(WebDriver driver, int i) {
+    public void switchToframeByIndex(WebDriver driver, int i) {
         Frame frame = new Frame();
         driver.switchTo().frame(i);
     }
-    public void frameByNameOrId(WebDriver driver, String value) {
+    public void switchToframeByNameOrId(WebDriver driver, String value) {
         Frame frame = new Frame();
         driver.switchTo().frame(value);
     }
-    public void frameByWebElement(WebDriver driver, WebElement element) {
+    public void switchToframeByWebElement(WebDriver driver, WebElement element) {
         Frame frame = new Frame();
         driver.switchTo().frame(element);
     }
-    public String windowHandlesTogetParent(WebDriver driver) {
+    public String getWindowHandleId(WebDriver driver) {
         return driver.getWindowHandle();
     }
-    public Set<String> windowHandlesToGetChild(WebDriver driver) {
+    public Set<String> getWindowHandlesId(WebDriver driver) {
         return driver.getWindowHandles();
     }
 }

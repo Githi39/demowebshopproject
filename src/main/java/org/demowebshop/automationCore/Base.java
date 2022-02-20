@@ -14,6 +14,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -67,16 +68,12 @@ public class Base {
 
     @BeforeMethod
 
-    public void setup() {
-        String browserName= prop.getProperty("browser");
-        String baseUrl= prop.getProperty("url");
-        testInitlz(browserName, baseUrl);
-
+    @Parameters({"browser"})
+    public void setUp(String browserName) {
+        //String browserName = prop.getProperty("browser");
+        String baseUrl = prop.getProperty("url");
+        testInitlz(browserName,baseUrl);
     }
-
-
-
-
     @AfterMethod
     public void tearDown(ITestResult result) throws IOException {
         if(ITestResult.FAILURE== result.getStatus()) {
@@ -84,6 +81,6 @@ public class Base {
             File screenShot = takesScreenshot.getScreenshotAs(OutputType.FILE);
             FileUtils.copyFile(screenShot, new File("./Screenshots/" + result.getName() + ".png"));
         }
-        driver.close();
+        //driver.close();
     }
 }

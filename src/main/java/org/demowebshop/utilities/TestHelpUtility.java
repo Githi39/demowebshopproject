@@ -1,9 +1,9 @@
 package org.demowebshop.utilities;
 
 public class TestHelpUtility {
-    ExcelUtility exce=new ExcelUtility();
-    PageUtility page=new PageUtility();
-    TableUtility table= new TableUtility();
-    WaitUtility wait= new WaitUtility();
-
+    public ExcelUtility excel=new ExcelUtility();
+    public PageUtility page=new PageUtility();
+    public  TableUtility table= new TableUtility();
+    public WaitUtility wait= new WaitUtility();
+    public RobotUtility robot=new RobotUtility();
 }
